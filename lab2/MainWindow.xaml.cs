@@ -69,7 +69,6 @@ namespace lab2
                 InputPage.BorderBrush = Brushes.DarkGray;
 
                 NextPageButton.IsEnabled = true;
-                PrevPageButton.IsEnabled = true;
                 UpdateButton.IsEnabled   = true; 
 
                 Table.ItemsSource = firstPage;
