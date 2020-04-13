@@ -20,7 +20,7 @@ namespace lab2
 
         private int recordsInOnePage = 20;
         private string fileName = @"\dontChangeItPlease.xlsx"; 
-        private string localDbPathDirectory    = @"C:\Users\User\Documents";
+        private string localDbPathDirectory    = @"C:\laba"; 
         private string uriOfExcelFile = "https://bdu.fstec.ru/files/documents/thrlist.xlsx";
         
         private List<Threat> localDb;
@@ -33,7 +33,16 @@ namespace lab2
         {
 
             if (File.Exists(localDbPathDirectory + fileName)) localDb = LoadLocalDB();
-            else                          localDb = CreateLocalDB();
+            else 
+            {
+                if (Directory.Exists(localDbPathDirectory)) localDb = CreateLocalDB();
+                else
+                {
+                    Directory.CreateDirectory(localDbPathDirectory);
+                    localDb = CreateLocalDB(); 
+                }
+            }  
+                
 
             if (localDb != null)
             {

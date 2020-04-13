@@ -25,6 +25,7 @@ namespace lab2
 {
 
     //!!! надо запускать Release версию 
+    //Путь можно поменять в LocalDataBaseController
     public partial class MainWindow : Window
     {
 
