@@ -1,0 +1,54 @@
+﻿<Window x:Class="lab2.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:lab2"
+        mc:Ignorable="d"
+        Title="Лабораторная работа №2" Height="450" Width="800"
+        Background="#fcedc2"
+        ResizeMode="NoResize">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="351*"/>
+            <ColumnDefinition Width="443*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.Background>
+            <ImageBrush ImageSource="images\sky.jpg"></ImageBrush>
+        </Grid.Background>
+        <DataGrid Name="Table" ColumnWidth="*" IsReadOnly="True" SelectionMode="Single" CanUserAddRows="False" AutoGenerateColumns="False" HorizontalAlignment="Left" Height="281" Margin="10,30,0,0" VerticalAlignment="Top" Width="536" Grid.ColumnSpan="2">
+            <DataGrid.Resources>
+                <Style TargetType="TextBlock" x:Key="WrapText">
+                    <Setter Property="TextWrapping" Value="Wrap"/>
+                </Style>
+            </DataGrid.Resources>
+            <DataGrid.Columns>
+                <DataGridTextColumn Width="35"  Header="УБИ." Binding="{Binding Id}" />
+                <DataGridTextColumn Header="Наименование угрозы" Binding="{Binding Name}" ElementStyle="{StaticResource WrapText}"/>
+                <DataGridTemplateColumn Width="80"   Header="Показать">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Click="ShowThreatInformation"  ToolTip="полная информация об угрозе">подробнее</Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button Name="DownloadTableButton" Background="LightSeaGreen" Content="Загрузить" ToolTip="Загружает таблицу (либо из локальной бд, либо из Интернета)" HorizontalAlignment="Left" Margin="10,316,0,0" VerticalAlignment="Top" Width="186" Click="DownloadTable"/>
+        <Button Content="Обновить ЛБД" Name="UpdateButton" Background="LightSeaGreen" HorizontalAlignment="Left" Margin="208.8,30,0,0" VerticalAlignment="Top" Width="213" Grid.Column="1" Click="UpdateLocalDb_Click"/>
+        <Button Content="Сохранить ЛБД" Background="LightSeaGreen" Name="SavaLocalDbButton"  HorizontalAlignment="Left" Margin="208.8,78,0,0" VerticalAlignment="Top" Width="213" Grid.Column="1" Click="SaveLocalDbButton_Click"/>
+        <TextBox TextAlignment="Center"  Name="InputPage" HorizontalAlignment="Left" Height="18" Margin="114.8,317,0,0" TextWrapping="Wrap" Text="-" VerticalAlignment="Top" Width="20" TextChanged="TextBox_TextChanged" Grid.Column="1"/>
+        <TextBlock Grid.Column="1" Name="PageText" HorizontalAlignment="Left" Margin="139.8,317,0,0" TextWrapping="Wrap" Text="из 0" VerticalAlignment="Top" Height="18"/>
+        <Button Content="След" Background="LightSeaGreen" Name="NextPageButton" HorizontalAlignment="Left" Height="18" Margin="53.8,317,0,0" VerticalAlignment="Top" Width="46" Grid.Column="1" Click="NextPageButton_Click"/>
+        <Button Content="Пред" Background="LightSeaGreen" Name="PrevPageButton" HorizontalAlignment="Left" Height="18" Margin="7.8,317,0,0" VerticalAlignment="Top" Width="46" Grid.Column="1" Click="PrevPageButton_Click"/>
+        <Button Content="Журнал изменений" Background="LightSeaGreen" HorizontalAlignment="Left" Margin="208.8,54,0,0" VerticalAlignment="Top" Width="213" Grid.Column="1" Click="ShowChanges_Click"/>
+
+        <Image x:Name="DS" Source="/Images/DeathStar.png" MouseDown="DS_MouseDown" Cursor="Hand" Margin="329.8,341,-0.4,10" Grid.Column="1"/>
+        <TextBlock Name="StatusColor" HorizontalAlignment="Left" Background="Green" Height="16" Margin="10,387,0,0" TextWrapping="Wrap" Text=""  VerticalAlignment="Top" Width="16" RenderTransformOrigin="-7.814,6.308"/>
+        <TextBlock Name="StatusTextBlock" HorizontalAlignment="Left" Background="White" Height="16" Margin="31,387,0,0" TextAlignment="Center" TextWrapping="Wrap" Text="Статус"  VerticalAlignment="Top" Width="95" RenderTransformOrigin="-7.814,6.308"/>
+        <Button Content="Помощь" Background="LightSeaGreen" Grid.Column="1" HorizontalAlignment="Left" Height="19" Margin="208.8,130,0,0" VerticalAlignment="Top" Width="213" Click="Help_Click"/>
+
+
+
+    </Grid>
+</Window>

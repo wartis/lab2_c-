@@ -1,0 +1,19 @@
+﻿<Window x:Class="lab2.ChangesWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:lab2"
+        mc:Ignorable="d"
+        Title="Журнал изменений" Height="450" Width="800"
+        ResizeMode="NoResize">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="12*"/>
+            <ColumnDefinition Width="385*"/>
+        </Grid.ColumnDefinitions>
+        <ListBox Name="ChangesList" HorizontalAlignment="Left" Height="343" Margin="2,10,0,0" VerticalAlignment="Top" Width="741" Grid.Column="1"/>
+        <Button Name="BackButton" Click="BackButton_Click" Content="Назад!" Grid.Column="1" HorizontalAlignment="Left" Height="34" Margin="279,376,0,0" VerticalAlignment="Top" Width="146"/>
+
+    </Grid>
+</Window>
