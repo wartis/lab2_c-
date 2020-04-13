@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:lab2"
         mc:Ignorable="d"
-        Title="ChangesWindow" Height="450" Width="800">
+        Title="ChangesWindow" Height="450" Width="800"
+        ResizeMode="NoResize">
     <Grid>
         <TextBlock HorizontalAlignment="Left" Foreground="LightSeaGreen" FontWeight="Bold" Height="37" Margin="20,43,0,0" TextWrapping="Wrap" Text="Идентификатор угрозы:" VerticalAlignment="Top" Width="99"/>
         <TextBlock HorizontalAlignment="Left" Foreground="LightSeaGreen" FontWeight="Bold" Height="35" Margin="20,85,0,0" TextWrapping="Wrap" Text="Наименование угрозы: " VerticalAlignment="Top" Width="99"/>
